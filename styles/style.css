@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Kaushan+Script&display=swap");
+
+/* 
+================================================
+ESCRITORIO (XL revisamos en 1366px en adelante) 
+================================================
+*/
+
+:root {
+  --primary: rgb(242, 178, 46);
+  --success: #ffb84d;
+  --dark: #131313;
+  --light: #eaeaea;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Cabin", "Kaushan Script", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Cabecera */
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 100;
+}
+
+.header .cont-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header .cont-logo img {
+  height: 60px;
+}
+
+.header .cont-logo p {
+  font-size: 35px;
+  font-family: "Kaushan Script", cursive;
+  font-weight: bold;
+  color: var(--light);
+}
+
+.header .nav-bar a {
+  border: 2px solid var(--primary);
+  padding: 3px 10px;
+  border-radius: 10px;
+  columns: var(--primary);
+  font-size: 20px;
+  margin-right: 10px;
+  color: var(--success);
+
+  transition: 0.5s all ease-in;
+}
+
+.header .nav-bar a:hover {
+  background-color: var(--primary);
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.header .nav-bar-mobile {
+  display: none;
+}
+
+/* Banner */
+.banner {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+    120deg,
+    var(--dark) 65%,
+    var(--success) 30%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 100px; */
+  /* justify-content: space-evenly; */
+}
+
+.banner .banner-cont {
+  width: fit-content;
+}
+
+.banner .banner-cont h3 {
+  font-size: 40px;
+  color: var(--light);
+}
+
+.banner .banner-cont h2 {
+  font-size: 90px;
+  color: var(--light);
+  font-family: "Kaushan Script", cursive;
+}
+
+.banner .banner-cont p {
+  color: #9e9898;
+  font-size: 18px;
+  width: 600px;
+  margin-bottom: 40px;
+  margin-right: 100px;
+}
+
+.banner .banner-cont .btn-home {
+  background-color: #ff2e02;
+  padding: 10px 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--light);
+  border-radius: 6px;
+  font-size: 20px;
+  border: 2px solid #ff2e02;
+  transition: 0.3s;
+}
+
+.banner .banner-cont .btn-home:hover {
+  background-color: var(--dark);
+  color: #ff2e02;
+}
+
+.banner .banner-img img {
+  max-width: 550px;
+  width: 95%;
+  margin-top: 100px;
+  /* animation: animation-img-banner 20s linear infinite; */
+  animation: slide-rotate-hor-top 3s;
+}
+
+/* 
+================================================
+MOVILES (Revisamos en 768px hacia abajo) 
+================================================
+*/
+@media (max-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark);
+  }
+
+  .header .nav-bar {
+    display: none;
+  }
+
+  .header .cont-logo p {
+    font-size: 25px;
+  }
+
+  .header .nav-bar-mobile {
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: var(--primary);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 200;
+  }
+
+  .header .nav-bar-mobile a {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 10px;
+    background: var(--dark);
+    border: 2px solid var(--dark);
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.5s all ease-in;
+  }
+  .header .nav-bar-mobile a:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+    font-weight: bold;
+
+    transform: scale(1.1);
+  }
+
+  .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .banner .banner-cont h3 {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+  .banner .banner-cont h2 {
+    font-size: 50px;
+  }
+  .banner .banner-cont p {
+    width: auto;
+  }
+
+  .banner .banner-cont {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 0%;
+    margin-right: 0%;
+  }
+
+  .banner .banner-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* KeyFrames */
+@keyframes animation-img-banner {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.slide-rotate-hor-top {
+  -webkit-animation: slide-rotate-hor-top 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse both;
+  animation: slide-rotate-hor-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    infinite alternate-reverse both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-11-1 9:55:16
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+@-webkit-keyframes slide-rotate-hor-top {
+  0% {
+    -webkit-transform: translateY(0) rotateX(0deg);
+    transform: translateY(0) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(-150px) rotateX(-90deg);
+    transform: translateY(-150px) rotateX(-90deg);
+  }
+}
+@keyframes slide-rotate-hor-top {
+  0% {
+    -webkit-transform: translateY(0) rotateX(0deg);
+    transform: translateY(0) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(-150px) rotateX(-90deg);
+    transform: translateY(-150px) rotateX(-90deg);
+  }
+}
